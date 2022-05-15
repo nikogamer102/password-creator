@@ -1,0 +1,28 @@
+.bigText {
+    color:azure;
+    width: 400;
+}
+.passHere {
+    color:azure;
+    width: 1000;
+}
+.smallText {
+    color:azure;
+    width: 150;
+}
+.genButton {
+    width: 300px;
+    height: 40px;
+    margin-top: 30px;
+
+}
+
+.input {
+    width: 200px;
+    height: 30px;
+    
+}
+
+input { 
+    text-align:center; 
+}

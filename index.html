@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body style="background: linear-gradient(to right, #555555 0%, #000000 100%);;">
+        <center><h1 class="bigText" id="title">Password generator</h1></center>
+        <center><h2 class="passHere" id="password">password goes here</h2></center>
+        <div class="password length">
+            <center><h3 class="smallText">password length</h3></center>
+            <center><input type="text" class="input" id="length"></input></center>
+        </div>
+        <center><button class="genButton" onclick="onClick()">generate</button></center>
+    </body>
+
+    <script>
+
+        function generate() {
+        chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#¤%&/()=@£$€{[]}\¨'-.,:;",
+        string = ""
+    for (var i = 0, n = chars.length; i < document.getElementById("length").value; ++i) {
+        string += chars.charAt(Math.floor(Math.random() * n));
+    }
+    return string;
+        }
+
+        function onClick() {
+            let pass = generate()
+
+            document.getElementById("password").innerHTML = pass
+        }
+    </script>
+</html>
