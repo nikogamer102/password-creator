@@ -5,7 +5,8 @@
 
     <body style="background: linear-gradient(to right, #555555 0%, #000000 100%);;">
         <center><h1 class="bigText" id="title">Password generator</h1></center>
-        <center><h2 class="passHere hover" id="password" onclick="navigator.clipboard.writeText(document.getElementById('password').innerText)">password goes here</h2></center>
+        <center><h4 style="color:azure">click on password to copy</h4></center>
+        <center><h2 class="passHere" id="password" onclick="navigator.clipboard.writeText(document.getElementById('password').innerText)">password goes here</h2></center>
         <div class="password length">
             <center><h3 class="smallText">password length</h3></center>
             <center><input type="text" class="input" id="length"></input></center>
