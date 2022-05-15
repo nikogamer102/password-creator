@@ -4,27 +4,40 @@
     </head>
 
     <body style="background: linear-gradient(to right, #555555 0%, #000000 100%);;">
+        <h5>credits to notsu for help</h5>
         <center><h1 class="bigText" id="title">Password generator</h1></center>
-        <center><h2 class="passHere" id="password">password goes here</h2></center>
+        <center><h4 style="color:azure">click on password to copy</h4></center>
+        <center><h2 class="passHere" style="cursor: pointer" id="password" onclick="navigator.clipboard.writeText(document.getElementById('password').innerText)">password goes here</h2></center>
         <div class="password length">
             <center><h3 class="smallText">password length</h3></center>
             <center><input type="text" class="input" id="length"></input></center>
         </div>
-        <center><button class="genButton" onclick="onClick()">generate</button> <button class="genButton" onclick="copy()">copy</button></center>
+    <center>
+        <br>
+        <input type="checkbox" id="useUppercase" name="useUppercase" value="useUppercase">
+        <label class="smallText" for="useUppercase">Use uppercase letters (A-Z)</label><br>
+        <input type="checkbox" id="useLowercase" name="useLowercase" value="useLowercase">
+        <label class="smallText" for="useLowercase">Use lowercase letters (a-z)</label><br>
+        <input type="checkbox" id="useNumbers" name="useNumbers" value="useNumbers">
+        <label class="smallText" for="useNumbers">Use numbers (0-9)</label><br>
+        <input type="checkbox" id="useSpecial" name="useSpecial" value="useSpecial">
+        <label class="smallText" for="useSpecial">Use special symbols (!#¤%&/()=@£$€{[]}\¨'-.,:;)</label><br>
+    </center>
+        <center><button class="genButton" onclick="onClick()">generate</button></center>
     </body>
-
     <script>
-  
-
         function generate() {
-        chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#¤%&/()=@£$€{[]}\¨'-.,:;йцукенгшщзхъфывапролджэячсмитьбю",
+        chars = "",
         string = ""
+        if (document.getElementById("useUppercase").checked) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if (document.getElementById("useLowercase").checked) chars += "abcdefghijklmnopqrstuvwxyz";
+        if (document.getElementById("useNumbers").checked) chars += "0123456789";
+        if (document.getElementById("useSpecial").checked) chars += "!#¤%&/()=@£$€{[]}\¨'-.,:;";
     for (var i = 0, n = chars.length; i < document.getElementById("length").value; ++i) {
         string += chars.charAt(Math.floor(Math.random() * n));
     }
     return string;
         }
-
         function onClick() {
             let pass = generate()
 
