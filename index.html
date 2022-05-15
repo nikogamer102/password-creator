@@ -11,6 +11,14 @@
             <center><h3 class="smallText">password length</h3></center>
             <center><input type="text" class="input" id="length"></input></center>
         </div>
+        <input type="checkbox" id="useUppercase" name="useUppercase" value="yes">
+        <label for="useUppercase">Use uppercase letters (A-Z)</label><br>
+        <input type="checkbox" id="useLowercase" name="useLowercase" value="yes">
+        <label for="useLowercase">Use lowercase letters (a-z)</label><br>
+        <input type="checkbox" id="useNumbers" name="useNumbers" value="yes">
+        <label for="useNumbers">Use numbers (0-9)</label><br>
+        <input type="checkbox" id="useSpecial" name="useSpecial" value="yes">
+        <label for="useSpecial">Use special symbols (!#¤%&/()=@£$€{[]}\¨'-.,:;)</label><br>
         <center><button class="genButton" onclick="onClick()">generate</button></center>
     </body>
 
@@ -18,8 +26,12 @@
   
 
         function generate() {
-        chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#¤%&/()=@£$€{[]}\¨'-.,:;йцукенгшщзхъфывапролджэячсмитьбю",
+        chars = "",
         string = ""
+        if (document.getElementById("useUppercase").value == "yes") chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if (document.getElementById("useLowercase").value == "yes") chars += "abcdefghijklmnopqrstuvwxyz";
+        if (document.getElementById("useNumbers").value == "yes") chars += "0123456789";
+        if (document.getElementById("useSpecial").value == "yes") chars += "!#¤%&/()=@£$€{[]}\¨'-.,:;";
     for (var i = 0, n = chars.length; i < document.getElementById("length").value; ++i) {
         string += chars.charAt(Math.floor(Math.random() * n));
     }
