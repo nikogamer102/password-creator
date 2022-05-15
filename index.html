@@ -24,10 +24,7 @@
     </center>
         <center><button class="genButton" onclick="onClick()">generate</button></center>
     </body>
-
     <script>
-  
-
         function generate() {
         chars = "",
         string = ""
@@ -40,19 +37,10 @@
     }
     return string;
         }
-
         function onClick() {
             let pass = generate()
 
             document.getElementById("password").innerHTML = pass
-        }
-        function copy(that){
-            var inp =document.createElement('input');
-            document.body.appendChild(inp)
-            inp.value =that.textContent
-            inp.select();
-            document.execCommand('copy',false);
-            inp.remove();
         }
     </script>
 </html>
