@@ -5,12 +5,12 @@
 
     <body style="background: linear-gradient(to right, #555555 0%, #000000 100%);;">
         <center><h1 class="bigText" id="title">Password generator</h1></center>
-        <center><h2 class="passHere" id="password">password goes here</h2></center>
+        <center><h2 class="passHere" id="password" onclick="copy(this)">password goes here</h2></center>
         <div class="password length">
             <center><h3 class="smallText">password length</h3></center>
             <center><input type="text" class="input" id="length"></input></center>
         </div>
-        <center><button class="genButton" onclick="onClick()">generate</button> <button class="genButton" onclick="copy()">copy</button></center>
+        <center><button class="genButton" onclick="onClick()">generate</button> <button class="genButton">copy</button></center>
     </body>
 
     <script>
@@ -30,8 +30,13 @@
 
             document.getElementById("password").innerHTML = pass
         }
-        function copy() {
-            document.querySelector(".passHere").select(); document.execCommand("copy")
+        function copy(that){
+            var inp =document.createElement('input');
+            document.body.appendChild(inp)
+            inp.value =that.textContent
+            inp.select();
+            document.execCommand('copy',false);
+            inp.remove();
         }
     </script>
 </html>
